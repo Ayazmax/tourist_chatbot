@@ -83,10 +83,13 @@ CORS(app)
 app.static_folder = 'static'
 
 
+from flask import Flask, jsonify
+
 @app.route("/bot", methods=["POST"])
 def get_bot_response():
-    userText = request.form.get('msg')
-    return chatbot_response(userText)
+    user_text = request.form.get('msg')
+    response_data = chatbot_response(user_text)
+    return jsonify({"response": response_data})
 
 
 if __name__ == "__main__":
