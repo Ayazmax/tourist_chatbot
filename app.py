@@ -81,7 +81,7 @@ app = Flask(__name__)
 app.static_folder = 'static'
 
 
-@app.route("/get")
+@app.route("/bot", methods=["POST"])
 def get_bot_response():
     userText = request.args.get('msg')
     return chatbot_response(userText)
