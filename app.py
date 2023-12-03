@@ -83,7 +83,7 @@ app.static_folder = 'static'
 
 @app.route("/bot", methods=["POST"])
 def get_bot_response():
-    userText = request.args.get('msg')
+    userText = request.form.get('msg')
     return chatbot_response(userText)
 
 
